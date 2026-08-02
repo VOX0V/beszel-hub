@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 # Installation des paquets requis
 RUN apk add --no-cache curl jq tar
 
-# Script d'installation multi-architecture
+# Script d'installation multi-architecture corrigé
 ARG BESZEL_VERSION=0.18.7
 RUN set -x && \
     ARCH=$(uname -m) && \
