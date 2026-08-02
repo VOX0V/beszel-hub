@@ -1,5 +1,5 @@
 name: "Beszel Hub"
-version: "0.18.7"
+version: "0.18.8"
 slug: "beszel_hub"
 description: "Supervision légère de serveurs avec authentification Home Assistant"
 url: "https://github.com/VOX0V/beszel-hub"
@@ -11,7 +11,9 @@ init: false
 ingress: true
 ingress_port: 8090
 panel: true
-hassio_api: true
-hassio_role: default
+options:
+  ingress_path: "/api/hassio_ingress/y4kk-clFA5dUphm8XWWK-3gFLB9-xebQbQ6x7dZVDoI"
+schema:
+  ingress_path: str
 map:
   - config:rw
