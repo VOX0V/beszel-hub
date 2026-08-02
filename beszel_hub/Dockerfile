@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
 # Installation des paquets requis
@@ -10,9 +10,9 @@ RUN set -x && \
     ARCH=$(uname -m) && \
     if [ "$ARCH" = "x86_64" ]; then BIN_ARCH="amd64"; \
     elif [ "$ARCH" = "aarch64" ]; then BIN_ARCH="arm64"; \
-    elif [ "$ARCH" = "armv7l" ]; then BIN_ARCH="armv7"; \
+    elif [ "$ARCH" = "armv7l" ]; then BIN_ARCH="arm"; \
     else echo "Architecture non supportée: $ARCH" && exit 1; fi && \
-    curl -L "https://github.com{BESZEL_VERSION}/beszel_${BESZEL_VERSION}_linux_${BIN_ARCH}.tar.gz" | tar -xz -C /usr/bin/
+    curl -L "https://github.com/henrygd/beszel/releases/download/v${BESZEL_VERSION}/beszel_linux_${BIN_ARCH}.tar.gz" | tar -xz -C /usr/bin/
 
 RUN mkdir -p /config/beszel_data
 
