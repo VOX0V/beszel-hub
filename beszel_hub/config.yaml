@@ -12,5 +12,6 @@ ingress: true
 ingress_port: 8090
 panel: true
 hassio_api: true
+hassio_role: default
 map:
   - config:rw
