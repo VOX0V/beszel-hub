@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 # Installation des paquets requis
 RUN apk add --no-cache curl jq tar
 
-# Script d'installation multi-architecture corrigé
+# Script d'installation multi-architecture
 ARG BESZEL_VERSION=0.18.7
 RUN set -x && \
     ARCH=$(uname -m) && \
@@ -16,9 +16,9 @@ RUN set -x && \
 
 RUN mkdir -p /config/beszel_data
 
-# Configuration des variables d'environnement pour désactiver le blocage d'Iframe natif
-ENV DISABLE_X_FRAME_OPTIONS=true
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
 
 EXPOSE 8090
 
-CMD ["/usr/bin/beszel", "serve", "--http", "0.0.0.0:8090", "--dir", "/config/beszel_data"]
+CMD [ "/run.sh" ]
