@@ -1,0 +1,14 @@
+name: "Beszel Hub"
+version: "0.18.7"
+slug: "beszel_hub"
+description: "Supervision légère de serveurs avec authentification Home Assistant"
+url: "https://github.com"
+arch:
+  - amd64
+  - aarch64
+init: false
+ingress: true
+ingress_port: 8090
+panel: true
+map:
+  - config:rw
